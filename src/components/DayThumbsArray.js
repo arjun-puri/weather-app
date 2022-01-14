@@ -1,0 +1,3 @@
+const DayThumbsArray = () => 
+<div>
+</div>
