@@ -1,3 +1,1 @@
-const DayThumbsArray = () => 
-<div>
-</div>
+export const DayThumbsArray = () => ( <div></div> );

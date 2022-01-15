@@ -13,3 +13,5 @@ const DayThumbs = () => {
         </div>
     )
 }
+
+export default DayThumbs;

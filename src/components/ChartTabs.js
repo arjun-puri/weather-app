@@ -1,3 +1,6 @@
+import React from 'react'
+import Chart from './Chart'
+
 const ChartTabs = () => 
 <div>
     <ol>
@@ -11,3 +14,5 @@ const ChartTabs = () =>
         <div><Chart /></div>
     </div>
 </div>
+
+export default ChartTabs;
