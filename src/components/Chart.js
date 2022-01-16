@@ -1,5 +1,25 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
 const Chart = (props) => {
     const { data, name } = props
@@ -7,15 +27,23 @@ const Chart = (props) => {
     const labels = data.map(ele => ele.x);
     const values = data.map(ele => ele.y);
     const customObject = {
-        labels: labels,
-        data: {
-            datasets: [{
-                data: values
-            }]
-        }
+        labels: labels,    
+        datasets: [{
+            label: name,
+            data: values
+        }]
     }
+    // const customObject = {
+    //     labels: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
+    //     datasets: [
+    //         {
+    //             label: name,
+    //             data: [1,2,3,4,5,6,7]
+    //         }
+    //     ]
+    // }
 
-    console.log(customObject)
+    // console.log(customObject)
 
     return (
         <>

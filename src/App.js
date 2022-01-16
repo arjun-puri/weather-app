@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
-import { Search } from './components/Search'
-import { Card } from './components/Card';
+import { Search } from './Components/Search'
+import { Card } from './Components/Card';
 
 const App = () => {
   const [place, setPlace] = useState('');
