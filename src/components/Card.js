@@ -1,16 +1,19 @@
 import React from "react";
 import Today from './Today';
+import LocationInfo from "./LocationInfo";
+import ChartTabs from "./ChartTabs";
+import { DayThumbsArray } from "./DayThumbsArray";
 
-export const Card = ({weatherToday, handleUnitType, unitType}) => {
+export const Card = ({weatherData, handleUnitType, unitType}) => {
 
     return(
     <>
         <div>
-            <Today data={weatherToday} />
-            {/* <LocationInfo /> */}
+            <Today data={weatherData} />
+            <LocationInfo place={weatherData.place} date={weatherData.dt} condition={weatherData.condition} />
         </div>
-        {/* <ChartTab />
-        <DayThumbsArray /> */}
+        <ChartTabs props={weatherData.chartTrend} />
+        <DayThumbsArray nextForecast={weatherData.nextForecast} />
     </>
     )
 }

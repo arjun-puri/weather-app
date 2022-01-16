@@ -1,16 +1,8 @@
 import React from "react";
+import { convertKelvinToCelsius, convertKelvinToFahrenheit} from '../helpers/UtilityFunctions'
 
 const Today = ({ data }) => {
-  const { temp, pressure, humidity, wind_speed, iconImg, condition } = data;
-  // converts temperature from kelvin to celsius
-  const convertKelvinToCelsius = (tempKelvin) => {
-    return (tempKelvin - 273.15).toFixed(2);
-  };
-
-  // converts temperature from kelvin to fahrenheit
-  const convertKelvinToFahrenheit = (tempKelvin) => {
-    return (1.8 * (tempKelvin - 273.15 + 32)).toFixed(2);
-  };
+  const { temp, pressure, humidity, wind_speed, iconImg, condition } = data;  
 
   const currTempC = convertKelvinToCelsius(temp);
   // const currTempF = convertKelvinToFahrenheit(temp);

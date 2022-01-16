@@ -2,7 +2,7 @@ export const Search = ({ place, handlePlaceChange, handleSubmit }) => {
   return (
     <div>
       <form onSubmit={e => handleSubmit(e)}>
-        <label for="searchLabel">Search Weather</label>
+        <label htmlFor="searchLabel">Search Weather</label>
         <input
           id="searchLabel"
           type="text"
