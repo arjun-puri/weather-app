@@ -14,14 +14,14 @@ const Today = ({ data }) => {
   };
 
   return (
-    <div>
+    <div className="flex items-center justify-between">
       <img src={iconImg} alt={condition} />
-      <div>{currTempC}°C</div>
-      <div>
+      <div className="text-3xl font-bold pl-2 pr-2">{currTempC}<sup className="font-normal text-xl">°C</sup></div>
+      <div className="text-sm text-gray-500 pl-2 pr-2">
         <ul>
           {[
-            [ "Humidity", humidity ],
             [ "Pressure", pressure ],
+            [ "Humidity", humidity ],
             [ "Wind Speed", wind_speed ],
           ].map((detail) => otherDetailsRender(detail))}
         </ul>

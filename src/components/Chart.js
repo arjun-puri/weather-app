@@ -9,6 +9,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    Filler,
   } from 'chart.js';
 
 ChartJS.register(
@@ -18,40 +19,59 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    Filler
   );
+
+// removing grid lines
+ChartJS.defaults.scale.grid.drawOnChartArea = false;
 
 const Chart = (props) => {
     const { data, name } = props
-    // [{x: 1, y: 2}, {x: 2, y:1}]
-    const labels = data.map(ele => ele.x);
-    const values = data.map(ele => ele.y);
-    const customObject = {
-        labels: labels,    
-        datasets: [{
-            label: name,
-            data: values
-        }]
+    let lineColor = 'rgba(255, 0, 0, 0.4)';
+    switch(name) {
+        default: {lineColor = 'rgba(183, 193, 172, 0.4)'; break;}
+        case 'Temperature': {lineColor = 'rgba(255, 0, 0, 0.4)'; break;}
+        case 'Humidity': {lineColor = 'rgba(23,67,88,0.4)'; break;}
     }
-    // const customObject = {
-    //     labels: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
-    //     datasets: [
-    //         {
-    //             label: name,
-    //             data: [1,2,3,4,5,6,7]
-    //         }
-    //     ]
-    // }
 
-    // console.log(customObject)
+    const labels = data.map(ele => {
+        return ele.x.toString().split(', ')[1];
+    });
+    // const labels = data.map(ele => ele.x);
+    const values = data.map(ele => ele.y);
+    const customOptions = {
+        plugins: {
+            legend: {
+                display: false,
+            },
 
+        },
+        scales: {
+            y: {
+                display: false,
+            },
+            x: {
+                display: true,
+            }
+        }
+    }
+    const customData = {
+        labels: labels,   
+        datasets: [{
+            backgroundColor: lineColor,
+            borderColor: lineColor,
+            fill: 'origin',
+            label: name,
+            data: values,
+        }],
+
+    }
     return (
         <>
-            <Line data={customObject} />
+            <Line data={customData} options={customOptions} />
         </>
     )
 }
-
-// npm install --save react-chartjs-2 chart.js
 
 export default Chart;

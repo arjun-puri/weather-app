@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 import { Search } from './Components/Search'
 import { Card } from './Components/Card';
+import { convertKelvinToCelsius } from './helpers/UtilityFunctions'; 
 
 const App = () => {
   const [place, setPlace] = useState('');
@@ -1594,7 +1595,7 @@ const App = () => {
     })
     //console.log(nextForecast)
     const chartTrend = weatherData.hourly.slice(0, 24).map(tr => {
-      return {date: dt, pressure: tr.pressure, humidity: tr.humidity, windspeed: tr.wind_speed}
+      return {date: tr.dt, temperature: convertKelvinToCelsius(tr.temp), humidity: tr.humidity, windspeed: tr.wind_speed}
     })
 
     setweatherData({ temp, pressure, humidity, wind_speed, iconImg, condition, dt, place, nextForecast, chartTrend });
@@ -1605,10 +1606,10 @@ const App = () => {
 
 
   return (
-    <>
+    <div>
       <Search place={place} handlePlaceChange={handlePlaceChange} handleSubmit={handleSubmit} />
       {showCard ? <Card weatherData={weatherData} handleUnitType={handleUnitType} unitType={unitType} /> : null}
-    </>
+    </div>
   )
 }
 
