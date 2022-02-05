@@ -30,7 +30,8 @@ const ChartTabs = (props) => {
         <div>
             <ol className="flex items-center justify-around">
                 {charts.map(chart => {
-                    return(<li key={chart.name} onClick={() => changeChart(chart.name)} className={"border-b-"+chart.color+"-400 border-b-8 cursor-pointer shadow-lg p-2 rounded-md"}>{chart.name}</li>)
+                    const borderColor = `border-b-${chart.color}-400`;
+                    return(<li key={chart.name} onClick={() => changeChart(chart.name)} className={ borderColor+` border-b-8 cursor-pointer shadow-lg p-2 rounded-md`}>{chart.name}</li>)
                 })}
             </ol>
             <div>
