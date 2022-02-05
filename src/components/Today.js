@@ -1,5 +1,5 @@
 import React from "react";
-import { convertKelvinToCelsius, convertKelvinToFahrenheit} from '../helpers/UtilityFunctions'
+import { convertKelvinToCelsius} from '../helpers/UtilityFunctions'
 
 const Today = ({ data }) => {
   const { temp, pressure, humidity, wind_speed, iconImg, condition } = data;  

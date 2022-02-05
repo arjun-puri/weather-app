@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { convertKelvinToCelsius, convertKelvinToFahrenheit, getDateInIST } from '../helpers/UtilityFunctions'
+import { convertKelvinToCelsius, getDateInIST } from '../helpers/UtilityFunctions'
 
 const DayThumbs = (props) => {
     const { date, min, max, iconUrl, condition } = props.dayForecast

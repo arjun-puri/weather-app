@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Search } from './Components/Search'
-import { Card } from './Components/Card';
+import { Search } from './components/Search'
+import { Card } from './components/Card';
 import { convertKelvinToCelsius } from './helpers/UtilityFunctions'; 
 
 const App = () => {
