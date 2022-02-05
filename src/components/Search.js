@@ -1,7 +1,7 @@
 export const Search = ({ place, handlePlaceChange, handleSubmit }) => {
   return (
     <div>
-      <form onSubmit={e => handleSubmit(e)}>
+      <form className="flex py-6 max-w-4xl items-center justify-center" onSubmit={e => handleSubmit(e)}>
         <label htmlFor="searchLabel">Search Weather</label>
         <input
           id="searchLabel"
@@ -9,8 +9,9 @@ export const Search = ({ place, handlePlaceChange, handleSubmit }) => {
           placeholder="search weather for a place"
           value={place}
           onChange={e => handlePlaceChange(e)}
+          className="border-2 w-96 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none mx-6"
         ></input>
-        <input type="submit" value="Submit"></input>
+        <input type="submit" className="rounded-lg font-bold text-white bg-blue-700 text-center py-2 px-4" value="Submit"></input>
       </form>
     </div>
   );

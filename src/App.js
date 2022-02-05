@@ -11,8 +11,8 @@ const App = () => {
   const [showCard, setCardView] = useState(false);
   const [unitType, setUnitType] = useState('metric');
 
-  const handlePlaceChange = (event) => {
-    setPlace(event.target.value);
+  const handlePlaceChange = (e) => {
+    setPlace(e.target.value);
   }
 
   const handleUnitType = (value) => {
@@ -24,12 +24,16 @@ const App = () => {
     setweatherData(data);
   }
 
+  const fetchLocationData = async () => {
+    const { data } = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=${}`)
+  }
+
   const getIcon = (iconCode) => {
     //console.log(iconCode)
     return `http://openweathermap.org/img/wn/${iconCode}@2x.png`
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const weatherData = {
       "lat": 28.7,
@@ -1606,7 +1610,7 @@ const App = () => {
 
 
   return (
-    <div>
+    <div className="flex justify-center items-center flex-col" >
       <Search place={place} handlePlaceChange={handlePlaceChange} handleSubmit={handleSubmit} />
       {showCard ? <Card weatherData={weatherData} handleUnitType={handleUnitType} unitType={unitType} /> : null}
     </div>
