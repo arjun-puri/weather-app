@@ -3,7 +3,6 @@ import Chart from './Chart'
 import { getDateInIST } from '../helpers/UtilityFunctions'
 
 const ChartTabs = (props) => {
-    // const options = { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kolkata' };
     const options = { hour: 'numeric', timeZone: 'Asia/Kolkata' }
 
     const charts = [
