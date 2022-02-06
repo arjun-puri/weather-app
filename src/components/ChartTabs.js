@@ -9,15 +9,15 @@ const ChartTabs = (props) => {
     const charts = [
         {
             name: "Temperature",
-            color: 'red',
+            borderClass: 'border-b-red-400',
         },
         {
             name: "Humidity",
-            color: "gray",
+            borderClass: "border-b-gray-400",
         },
         {
             name: "Wind speed",
-            color: 'green',
+            borderClass: 'border-b-green-400',
         }
     ]
     const [activeChart, setActiveChart] = useState('Temperature');
@@ -30,8 +30,7 @@ const ChartTabs = (props) => {
         <div>
             <ol className="flex items-center justify-around">
                 {charts.map(chart => {
-                    const borderColor = `border-b-${chart.color}-400`;
-                    return(<li key={chart.name} onClick={() => changeChart(chart.name)} className={ borderColor+` border-b-8 cursor-pointer shadow-lg p-2 rounded-md`}>{chart.name}</li>)
+                    return(<li key={chart.name} onClick={() => changeChart(chart.name)} className={ `${chart.borderClass} border-b-8 cursor-pointer shadow-lg p-2 rounded-md`}>{chart.name}</li>)
                 })}
             </ol>
             <div>
