@@ -1,13 +1,12 @@
-import React from 'react'
-import { convertKelvinToCelsius, getDateInIST } from '../helpers/UtilityFunctions'
+import { convertKelvinToCelsius, getDateInIST } from '../../helpers/UtilityFunctions'
 
-const DayThumbs = (props) => {
-    const { date, min, max, iconUrl, condition } = props.dayForecast
+function DayThumbs({ dayForecast }) {
+    const { date, min, max, iconUrl, condition } = dayForecast;
     const minC = convertKelvinToCelsius(min);
     const maxC = convertKelvinToCelsius(max);
 
     return (
-        <div className='flex rounded-md shadow-lg flex-col justify-center items-center p-2'>
+        <div className='flex rounded-md flex-col justify-center items-center mx-3'>
             <span>{getDateInIST(date).split(' ')[0].slice(0,3)}</span>
             <img src={iconUrl} alt={condition} />
             <div className='flex justify-between text-xs'>
