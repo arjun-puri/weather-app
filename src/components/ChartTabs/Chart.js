@@ -68,9 +68,7 @@ const Chart = (props) => {
 
     }
     return (
-        <>
             <Line data={customData} options={customOptions} />
-        </>
     )
 }
 
