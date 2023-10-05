@@ -8,26 +8,19 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build and dockerize') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'
+                script {
+                  docker.build("weather-app:${env.BUILD_ID}", '.')
+                }
             }
-        }
-
-        stage('Build docker image') {
-          steps {
-            script {
-              def appImage = docker.build("weather-app:${env.BUILD_ID}", '.')
-            }
-          }
         }
 
         stage('Deploy') {
             steps {
               script {
-                def appContainer = docker.image('weather-app:${env.BUILD_ID}')
-                appContainer.run("-p 8080:8080 -d")
+                def appContainer = docker.image("weather-app:${env.BUILD_ID}")
+                appContainer.run("-p 9090:80 -d")
               }
             }
         }
